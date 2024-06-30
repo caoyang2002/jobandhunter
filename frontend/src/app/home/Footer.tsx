@@ -34,7 +34,6 @@ function Footer() {
           </Typography>
         </Container>
       </Box>
-      <JobList />
     </>
   )
 }

@@ -51,11 +51,25 @@ CREATE TABLE job (
 
 
 
-安装 python 库
+## 安装 python 库
 
 ```bash
 cd server
 pip install -r requirement.txt
+```
+
+## 配置环境变量
+
+打开 `.env copy` 文件（位于 `server` 和 `frontend`），把后缀改为 `.env`，以下是示例：
+
+```env title="server/.env"
+DOMAIN_NAME=127.0.0.1
+```
+
+```env title="frontent/.env"
+ZHIPU_KEY=23443242342432432423432.zhipuZHIPU435
+MYSQL_USERNAME=username
+MYSQL_PSSWORD=password
 ```
 
 
