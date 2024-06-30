@@ -1,0 +1,59 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+
+/* 可以添加到您的全局 CSS 文件中 */
+
+.main-scroll-container {
+  /* 确保容器高度足够，以便内容可以滚动 */
+  height: 100%; /* 或者您可以设置一个固定的高度，如 800px */
+
+  /* 仅在垂直方向上允许滚动 */
+  overflow-y: auto;
+
+  /* 其他样式可以根据需要添加 */
+}
+
+.MuiContainer-root.MuiContainer-maxWidthLg.css-1oqqzyl-MuiContainer-root {
+  /* 移除 padding */
+  padding: 0 !important;
+
+  /* 移除最大宽度限制 */
+  max-width: none !important;
+}
+
+:root {
+  --mui-container-padding: 0;
+  --mui-container-max-width: none;
+}

@@ -1,0 +1,5 @@
+zhipuai
+flask_cors
+flask
+pymysql
+python-dotenv
