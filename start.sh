@@ -1,5 +1,5 @@
 cd server
-source jobenv/bin/activate
+source venv/bin/activate
 nohup python app.py > /dev/null 2>&1 &
 cd ..
 cd frontend
