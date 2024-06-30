@@ -35,7 +35,8 @@ function SubmitPositionDialog() {
   const handleSubmit = () => {
     const userInput = textValue
     console.log('用户输入的职位信息:', userInput)
-    fetch('http://127.0.0.1:5000/addjob', {
+    const addjob_url = 'http://' + process.env.DOMAIN_NAME + '/addjob'
+    fetch(addjob_url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
