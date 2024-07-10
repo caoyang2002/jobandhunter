@@ -5,18 +5,14 @@ git clone https://github.com/caoyang2002/jobandhunter.git
 cd jobandhunter
 ```
 
-
-
 ## 安装环境
 
->  环境配置
+> 环境配置
 >
 > - `mysql` 数据库
-> - `virtualenv`  python 虚拟环境
+> - `virtualenv` python 虚拟环境
 > - `Supervisor` 管理 flask 应用
-> - `python3.10^`  语言
-
-
+> - `python3.10^` 语言
 
 ### 创建表
 
@@ -49,8 +45,6 @@ CREATE TABLE job (
 
 ```
 
-
-
 ## 安装 python 库
 
 ```bash
@@ -72,15 +66,11 @@ MYSQL_USERNAME=username
 MYSQL_PSSWORD=password
 ```
 
-
-
 ## 启动
 
 ```bash
 ./start.sh
 ```
-
-
 
 ## 停止
 
@@ -88,11 +78,7 @@ MYSQL_PSSWORD=password
 ./stop.sh
 ```
 
-
-
 # 其他
-
-
 
 ## 安装 `python3.10`
 
@@ -106,7 +92,7 @@ wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 find / -name Python-3.10.0.tgz
 cd /home/
 cp /root/Python-3.10.0.tgz /home/
-tar -zvxf Python-3.10.0.tgz 
+tar -zvxf Python-3.10.0.tgz
 
 
 cd Python-3.10.0/
@@ -117,11 +103,6 @@ sudo make altinstall
 python3.10 --version
 
 ```
-
-
-
-
-
 
 要让 Flask 应用在后台运行并将日志分别输出到 `success.log` 和 `error.log` 文件中，可以通过以下步骤实现：
 
@@ -154,6 +135,7 @@ python3.10 --version
   - `stderr_logfile` 和 `stdout_logfile`: 分别指定标准错误输出和标准输出的日志文件路径。
 
 1. **启动 Supervisor 服务：**
+
    ```bash
    sudo service supervisor start
    ```
@@ -163,12 +145,6 @@ python3.10 --version
    - 错误日志文件：`error.log`
 
 通过上述步骤，你可以使用 Supervisor 管理 Flask 应用的后台运行，并将标准输出和标准错误分别记录到指定的日志文件中，以便于调试和监控应用的运行状态。
-
-
-
-
-
-
 
 ## 安装 `virtualenv`
 
@@ -229,5 +205,4 @@ deactivate
 
 退出虚拟环境后，命令行提示符会恢复到默认状态。
 
-
-
+如果是提交失败，可能的原因：

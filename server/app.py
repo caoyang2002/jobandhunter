@@ -1,6 +1,7 @@
+from flask import make_response
 import json
 import re
-import zhipuai
+# import zhipuai
 from flask import Flask, request, jsonify
 import mysql.sql
 import zhipu.text2json
@@ -28,18 +29,21 @@ jd = """
 投递邮箱 m1805536297@163.com
 """
 
-from flask import make_response
 
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers',
+                         'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods',
+                         'GET,POST,PUT,DELETE,OPTIONS')
     return response
+
 
 @app.route('/hello')
 def hello():  # put application's code here
     return 'Hello World!'
+
 
 @app.route('/addjob', methods=['POST'])
 def add_job():
@@ -59,15 +63,14 @@ def add_job():
             # 删除{} 前后的内容
             # 使用正则表达式提取大括号内的 JSON 部分
             pattern = r'\{.*?\}'  # 匹配最小长度的大括号内的内容
-            json_str = re.search(pattern, ai_response, re.DOTALL).group(0)  # 使用 DOTALL 模式以匹配包括换行符在内的所有字符
+            json_str = re.search(pattern, ai_response, re.DOTALL).group(
+                0)  # 使用 DOTALL 模式以匹配包括换行符在内的所有字符
 
             print(f"删除非 json 内容后的字符串: {json_str}")
-
 
             # 解析 JSON 字符串为字典
             job_json = json_str.replace("'", "\"")
             print(f"替换单引号为双引号: {job_json}")
-
 
             job = mysql.sql.Job()
             print("开始插入数据库")
@@ -83,6 +86,7 @@ def add_job():
 
         # 如果需要将数据返回给客户端，可以使用 jsonify
         return jsonify({"message": "Data received successfully"})
+
 
 @app.route('/getalljob', methods=['GET'])
 def get_all_job():
@@ -100,6 +104,7 @@ def get_all_job():
     except Exception as e:
         app.logger.error(f"Failed to fetch all jobs: {e}")
         return jsonify({"error": "Failed to fetch all jobs"}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
